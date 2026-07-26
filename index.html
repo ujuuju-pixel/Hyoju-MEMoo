@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#ffb6cf" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="효주어 메모" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <title>효주어 메모</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <button id="prevPage" class="round-btn" aria-label="이전 페이지">‹</button>
+      <div class="page-status"><strong id="pageLabel">1 / 1</strong><span id="saveState">저장됨</span></div>
+      <button id="nextPage" class="round-btn" aria-label="다음 페이지">›</button>
+      <button id="settingsBtn" class="round-btn small" aria-label="색상 설정">⚙︎</button>
+    </header>
+
+    <section class="paper" aria-label="메모장">
+      <input id="titleInput" class="title-input" type="text" autocomplete="off" placeholder="날짜 · 숫자 · 한글 제목" />
+      <div class="solid-divider"></div>
+      <div id="memoArea" class="memo-area" role="textbox" aria-label="효주어 메모 공간"></div>
+    </section>
+
+    <section id="keyboardPanel" class="keyboard-panel" aria-label="효주어 키보드">
+      <div class="keyboard-head">
+        <span>효주어 키보드</span>
+        <button id="hideKeyboard" class="text-btn">접기</button>
+      </div>
+      <div id="consonants" class="key-grid consonants"></div>
+      <div id="vowels" class="key-grid vowels"></div>
+      <div class="function-grid">
+        <button id="batchimBtn" class="function-key">[받침]</button>
+        <button id="ssangBtn" class="function-key"><img src="letters/ssang.png" alt="쌍자음" /><span>쌍자음</span></button>
+        <button id="spaceBtn" class="function-key">띄어쓰기</button>
+        <button id="enterBtn" class="function-key">줄바꿈</button>
+        <button id="backspaceBtn" class="function-key">⌫ 지우기</button>
+        <button id="clearBtn" class="function-key danger">현재 쪽 비우기</button>
+      </div>
+    </section>
+
+    <button id="showKeyboard" class="show-keyboard hidden">키보드 펼치기</button>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form method="dialog" class="settings-card">
+      <h2>화면 색상</h2>
+      <label>배경색 <input id="bgColor" type="color" value="#ffb6cf" /></label>
+      <label>키보드색 <input id="keyboardColor" type="color" value="#bfe8ff" /></label>
+      <div class="dialog-actions">
+        <button id="resetColors" type="button">기본색</button>
+        <button value="close">닫기</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
